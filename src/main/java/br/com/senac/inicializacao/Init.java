@@ -6,13 +6,13 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import br.com.senac.dominio.Aluno;
-import br.com.senac.repositorio.AlunoReopsitorio;
+import br.com.senac.repositorio.AlunoRepositorio;
 
 @Component
 public class Init implements ApplicationListener<ContextRefreshedEvent> {
 	
 	@Autowired
-	AlunoReopsitorio alunoRepositorio;
+	AlunoRepositorio alunoRepositorio;
 	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {

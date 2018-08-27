@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import br.com.senac.dominio.Aluno;
 
 @Repository
-public interface AlunoReopsitorio extends JpaRepository<Aluno, Integer> {
+public interface AlunoRepositorio extends JpaRepository<Aluno, Integer> {
 	
 	
 
