@@ -9,9 +9,11 @@ import org.springframework.stereotype.Component;
 
 import br.com.senac.dominio.Aluno;
 import br.com.senac.dominio.Cidade;
+import br.com.senac.dominio.Endereco;
 import br.com.senac.dominio.Estado;
 import br.com.senac.repositorio.AlunoRepositorio;
 import br.com.senac.repositorio.CidadeRepositorio;
+import br.com.senac.repositorio.EnderecoRepositorio;
 import br.com.senac.repositorio.EstadoRepositorio;
 
 @Component
@@ -26,15 +28,23 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 	@Autowired
 	EstadoRepositorio estadoRepositorio;
 	
+	@Autowired
+	EnderecoRepositorio enderecoRepositorio;
+	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		Aluno aluno1 = new Aluno();
 		aluno1.setNome("Lucas");
 		aluno1.setEmail("lucas@gmail.com");
 		
-		alunoRepositorio.save(aluno1);
+		Aluno aluno2 = new Aluno();
+		aluno2.setNome("Pablo");
+		aluno2.setEmail("pablo@gmail.com");
 		
-		Aluno alunoGravado = alunoRepositorio.findByEmail("lucas@gmail.com");
+		alunoRepositorio.save(aluno1);
+		alunoRepositorio.save(aluno2);
+		
+		// Aluno alunoGravado = alunoRepositorio.findByEmail("lucas@gmail.com");
 		
 		Estado estado1 = new Estado();
 		estado1.setNome("Rio de Janeiro");
@@ -54,6 +64,31 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		estadoRepositorio.saveAll(Arrays.asList(estado1, estado2));
 		
 		cidadeRepositorio.saveAll(Arrays.asList(cidade1, cidade2, cidade3));
+		
+		Endereco end1 = new Endereco();
+		end1.setRua("Rua dos Andradas");
+		end1.setNumero("20");
+		end1.setBairro("Centro");
+		end1.setComplemento("Bloco B");
+		end1.setCep("22341-175");
+		end1.setCidade(cidade1);
+		end1.setAluno(aluno1);
+		
+		Endereco end2 = new Endereco();
+		end2.setRua("Rua dos Marrecos");
+		end2.setNumero("68");
+		end2.setBairro("Laje");
+		end2.setComplemento("Fundos");
+		end2.setCep("21572-201");
+		end2.setCidade(cidade2);
+		end2.setAluno(aluno2);
+		
+		aluno1.getTelefones().addAll(Arrays.asList("2323232323", "2323232324"));
+		
+		alunoRepositorio.save(aluno1);
+		alunoRepositorio.save(aluno2);
+		
+		enderecoRepositorio.saveAll(Arrays.asList(end1, end2));
 	}
 
 }
