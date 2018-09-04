@@ -24,12 +24,23 @@ public class Pagamento implements Serializable {
 	@Id
 	private Integer id;
 	
-	private StatusPagamento statusPagamento;
+	private StatusPagamento status;
 	
 	@OneToOne
 	@JoinColumn(name="pedido_id")
 	@MapsId // para garantir que o id do pedido seja o do mapeamento
 	private Pedido pedido;
+
+	public Pagamento(Integer id, StatusPagamento status, Pedido pedido) {
+		super();
+		this.id = id;
+		this.status = status;
+		this.pedido = pedido;
+	}
+
+	public Pagamento() {
+		super();
+	}
 
 	public Integer getId() {
 		return id;
@@ -39,12 +50,12 @@ public class Pagamento implements Serializable {
 		this.id = id;
 	}
 
-	public StatusPagamento getStatusPagamento() {
-		return statusPagamento;
+	public StatusPagamento getStatus() {
+		return status;
 	}
 
-	public void setStatusPagamento(StatusPagamento statusPagamento) {
-		this.statusPagamento = statusPagamento;
+	public void setStatus(StatusPagamento status) {
+		this.status = status;
 	}
 
 	public Pedido getPedido() {

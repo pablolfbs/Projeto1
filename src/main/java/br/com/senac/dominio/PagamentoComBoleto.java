@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
+import br.com.senac.dominio.enums.StatusPagamento;
+
 @Entity
 public class PagamentoComBoleto extends Pagamento implements Serializable {
 
@@ -16,6 +18,16 @@ public class PagamentoComBoleto extends Pagamento implements Serializable {
 	private Date dataVencimento;
 	private Date dataPagamento;
 	
+	public PagamentoComBoleto(Integer id, StatusPagamento status, Pedido pedido, Date dataVencimento, Date dataPagamento) {
+		super(id, status, pedido);
+		this.dataPagamento = dataPagamento;
+		this.dataVencimento = dataVencimento;
+	}
+	
+	public PagamentoComBoleto() {
+		super();
+	}
+
 	public Date getDataVencimento() {
 		return dataVencimento;
 	}
