@@ -28,7 +28,7 @@ public class Endereco implements Serializable {
 	private String bairro;
 	private String cep;
 	
-	@JsonIgnore // o endereço náo precisa saber que é o aluno para o json. Isso já vai acontecer na classe Aluno.
+	@JsonIgnore // o endereço não precisa saber que é o aluno para o json. Isso já vai acontecer na classe Aluno.
 	@ManyToOne
 	@JoinColumn(name="aluno_id")
 	private Aluno aluno;

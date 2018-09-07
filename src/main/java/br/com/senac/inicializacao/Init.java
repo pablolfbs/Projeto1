@@ -128,5 +128,4 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 			e.printStackTrace();
 		}
 	}
-
 }
