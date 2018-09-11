@@ -1,12 +1,16 @@
 package br.com.senac.dominio;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -25,8 +29,9 @@ public class Curso implements Serializable {
 	private String descricao;
 	private Double preco;
 
-	@ManyToMany(mappedBy = "curso")
-	private Set<Categoria> categorias;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "curso_categoria", joinColumns = @JoinColumn(name = "curso_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+	private List<Categoria> categorias = new ArrayList<>();
 
 	public Integer getId() {
 		return id;
@@ -58,6 +63,14 @@ public class Curso implements Serializable {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
 	}
 
 }

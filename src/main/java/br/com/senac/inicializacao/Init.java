@@ -1,7 +1,9 @@
 package br.com.senac.inicializacao;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -44,13 +46,13 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 
 	@Autowired
 	PedidoRepositorio pedidoRepositorio;
-	
+
 	@Autowired
 	PagamentoRepositorio pagamentoRepositorio;
-	
+
 	@Autowired
 	CursoRepositorio cursoRepositorio;
-	
+
 	@Autowired
 	CategoriaRepositorio categoriaRepositorio;
 
@@ -128,7 +130,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 					sdf.parse("29/06/2018 00:00"));
 
 			ped1.setPagamento(pag1);
-			
+
 			// salvando o pedido
 			pedidoRepositorio.save(ped1);
 
@@ -137,25 +139,30 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		Curso c1 = new Curso();
 		Curso c2 = new Curso();
-		
+
 		Categoria cat1 = new Categoria();
 		Categoria cat2 = new Categoria();
-		
+
 		c1.setNome("Java");
 		c2.setNome("HTML");
-		
+
 		cat1.setNome("BackEnd");
 		cat2.setNome("FrontEnd");
-		
-		cursoRepositorio.save(c1);
-		cursoRepositorio.save(c2);
-		
-		categoriaRepositorio.save(cat1);
-		categoriaRepositorio.save(cat2);
-		
+
+		List<Categoria> categorias = new ArrayList<>();
+		categorias.add(cat1);
+		categorias.add(cat2);
+
+		c1.setCategorias(categorias);
+		c2.setCategorias(categorias);
+
+		cursoRepositorio.saveAll(Arrays.asList(c1, c2));
+
+		categoriaRepositorio.saveAll(Arrays.asList(cat1, cat2));
+
 	}
-	
+
 }
