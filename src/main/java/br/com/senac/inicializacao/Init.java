@@ -9,7 +9,9 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import br.com.senac.dominio.Aluno;
+import br.com.senac.dominio.Categoria;
 import br.com.senac.dominio.Cidade;
+import br.com.senac.dominio.Curso;
 import br.com.senac.dominio.Endereco;
 import br.com.senac.dominio.Estado;
 import br.com.senac.dominio.Pagamento;
@@ -17,7 +19,9 @@ import br.com.senac.dominio.PagamentoComBoleto;
 import br.com.senac.dominio.Pedido;
 import br.com.senac.dominio.enums.StatusPagamento;
 import br.com.senac.repositorio.AlunoRepositorio;
+import br.com.senac.repositorio.CategoriaRepositorio;
 import br.com.senac.repositorio.CidadeRepositorio;
+import br.com.senac.repositorio.CursoRepositorio;
 import br.com.senac.repositorio.EnderecoRepositorio;
 import br.com.senac.repositorio.EstadoRepositorio;
 import br.com.senac.repositorio.PagamentoRepositorio;
@@ -43,6 +47,12 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 	
 	@Autowired
 	PagamentoRepositorio pagamentoRepositorio;
+	
+	@Autowired
+	CursoRepositorio cursoRepositorio;
+	
+	@Autowired
+	CategoriaRepositorio categoriaRepositorio;
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -127,5 +137,25 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		Curso c1 = new Curso();
+		Curso c2 = new Curso();
+		
+		Categoria cat1 = new Categoria();
+		Categoria cat2 = new Categoria();
+		
+		c1.setNome("Java");
+		c2.setNome("HTML");
+		
+		cat1.setNome("BackEnd");
+		cat2.setNome("FrontEnd");
+		
+		cursoRepositorio.save(c1);
+		cursoRepositorio.save(c2);
+		
+		categoriaRepositorio.save(cat1);
+		categoriaRepositorio.save(cat2);
+		
 	}
+	
 }
