@@ -140,29 +140,6 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 			e.printStackTrace();
 		}
 
-		Curso c1 = new Curso();
-		Curso c2 = new Curso();
-
-		Categoria cat1 = new Categoria();
-		Categoria cat2 = new Categoria();
-
-		c1.setNome("Java");
-		c2.setNome("HTML");
-
-		cat1.setNome("BackEnd");
-		cat2.setNome("FrontEnd");
-
-		List<Categoria> categorias = new ArrayList<>();
-		categorias.add(cat1);
-		categorias.add(cat2);
-
-		c1.setCategorias(categorias);
-		c2.setCategorias(categorias);
-
-		cursoRepositorio.saveAll(Arrays.asList(c1, c2));
-
-		categoriaRepositorio.saveAll(Arrays.asList(cat1, cat2));
-
 	}
 
 }
