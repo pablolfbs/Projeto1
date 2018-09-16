@@ -29,6 +29,8 @@ public class Curso implements Serializable {
 	private String descricao;
 	private Double preco;
 
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "curso_categoria", joinColumns = @JoinColumn(name = "curso_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
 	private List<Categoria> categorias = new ArrayList<>();
 
 	public Integer getId() {
