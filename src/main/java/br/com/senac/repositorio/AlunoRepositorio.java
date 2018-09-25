@@ -10,6 +10,8 @@ public interface AlunoRepositorio extends JpaRepository<Aluno, Integer> {
 	
 	Aluno findByEmail(String email);
 	
+	Aluno findByNome(String nome);
+	
 	// @Query("select a from Aluno a where a.nome = ?1")
 	// Aluno findByNome(String nome);
 

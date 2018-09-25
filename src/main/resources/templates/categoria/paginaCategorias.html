@@ -3,21 +3,23 @@
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 
 <title>Categorias</title>
 </head>
-<body class="container">
-	<div class="panel panel-default">
-		<div class="panel-heading">
+<body>
+	<div class="container-fluid">
+		<div class="card-header">
 			<strong>Categorias</strong>
 		</div>
-		<div class="panel-body">
+		<div class="card-body">
 			<div class="table-responsive">
 				<table
 					class="table table-sm table-striped table-hover table-bordered">
@@ -33,9 +35,11 @@
 							<td th:text="${cat.id}"></td>
 							<td th:text="${cat.nome}"></td>
 							<td>
-								<div class="btn-group pull-right">
-									<a class="btn btn-sm btn-primary">Editar</a> <a
-										class="delete btn btn-sm btn-danger">Excluir</a>
+								<div class="btn-group float-right">
+									<a class="btn btn-sm btn-primary"
+										th:href="@{/alterarCategoria/{id}(id=${cat.id})}">Editar</a> <a
+										class="delete btn btn-sm btn-danger"
+										th:href="@{/excluir/{id}(id=${cat.id})}">Excluir</a>
 								</div>
 							</td>
 						</tr>
@@ -43,8 +47,8 @@
 				</table>
 			</div>
 		</div>
-		<div class="panel-footer">
-			<a class="btn btn-sm btn-success">Adicionar</a>
+		<div class="card-footer">
+			<a class="btn btn-sm btn-success" th:href="@{/adicionar/}">Adicionar</a>
 		</div>
 	</div>
 
