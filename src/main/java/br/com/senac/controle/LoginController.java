@@ -19,9 +19,9 @@ public class LoginController {
 	public String login(Aluno aluno) {
 		boolean decision = loginService.login(aluno);
 		if (decision) {
-			return "redirect:/menu";
+			return "redirect:menu/menu.html";
 		}
-		return "menu/paginaMenu.html";
+		return "erro/paginaErro.html";
 	}
 	
 	@GetMapping("/login")
@@ -31,6 +31,4 @@ public class LoginController {
 		return mv;
 	}
 	
-	
-
 }
