@@ -19,21 +19,23 @@
 			<form class="form-horizontal" th:object="${aluno}" th:action="@{/validar}" method="POST" style="margin: 10px">
 				<div class="form-group">
 					<fieldset>
-						<div class="form-group row">
-							<label>Nome</label>
-							<input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome" maxlength="50" name=""/>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" th:field="*{nome}" id="basic-addon1">+</span>
+							</div>
+							<input type="text" class="form-control" placeholder="Informe o Nome" aria-label="Username" aria-describedby="basic-addon1">
 						</div>
-					</fieldset>
-					<fieldset>
-						<div class="form-group row">
-							<label>E-mail</label>
-							<input type="text" class="form-control input-sm" th:field="*{email}" autofocus="autofocus" placeholder="Informe o e-mail" maxlength="50" name=""/>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" th:field="*{email}" id="basic-addon1">@</span>
+							</div>
+							<input type="text" class="form-control" placeholder="Informe o E-mail" aria-label="Username" aria-describedby="basic-addon1">
 						</div>
 					</fieldset>
 				</div>
 				<div align="center">
 					<button type="submit" class="btn btn-sm btn-primary">Login</button><br/><br/>
-					<a th:href="@{/listarCategorias}" class="btn btn-sm btn-default">Cancelar</a>
+					<a th:href="@{/listarCursos}" class="btn btn-sm btn-default">Cancelar</a>
 				</div>
 			</form>
 		</div>

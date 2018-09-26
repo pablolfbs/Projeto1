@@ -12,12 +12,12 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 
-<title>Alunos</title>
+<title>Cursos</title>
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="card-header">
-			<strong>Alunos</strong>
+			<strong>Cursos</strong>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -27,20 +27,23 @@
 						<tr>
 							<th>ID</th>
 							<th>Nome</th>
-							<th>E-mail</th>
+							<th>Descrição</th>
+							<th>Preço</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="al : ${alunos}">
-							<td th:text="${al.id}"></td>
-							<td th:text="${al.nome}"></td>
-							<td th:text="${al.email}"></td>
+						<tr th:each="cur : ${cursos}">
+							<td th:text="${cur.id}"></td>
+							<td th:text="${cur.nome}"></td>
+							<td th:text="${cur.descricao}"></td>
+							<td th:text="${cur.preco}"></td>
 							<td>
 								<div class="btn-group float-right">
 									<a class="btn btn-sm btn-primary"
-										th:href="@{/alterarAluno/{id}(id=${al.id})}">Editar</a> <a
+										th:href="@{/alterarCurso/{id}(id=${cur.id})}">Editar</a> <a
 										class="delete btn btn-sm btn-danger"
-										th:href="@{/excluir/{id}(id=${al.id})}">Excluir</a>
+										th:href="@{/excluir/{id}(id=${cur.id})}">Excluir</a>
 								</div>
 							</td>
 						</tr>
@@ -49,7 +52,7 @@
 			</div>
 		</div>
 		<div class="card-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/adicionarAluno/}">Adicionar</a>
+			<a class="btn btn-sm btn-success" th:href="@{/adicionarCurso/}">Adicionar</a>
 		</div>
 	</div>
 

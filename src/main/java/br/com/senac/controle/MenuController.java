@@ -11,17 +11,17 @@ import br.com.senac.dominio.Categoria;
 import br.com.senac.servico.AlunoService;
 
 @Controller
-public class AlunoController {
+public class MenuController {
 	
 	@Autowired
 	private AlunoService alunoService;
 	
-	@GetMapping("/validar")
-	public ModelAndView validar(Aluno aluno) {
-		ModelAndView mv = new ModelAndView("aluno/paginaLogin");
-		mv.addObject("aluno", aluno);
-		return mv;
-	}
+//	@PostMapping("/login")
+//	public ModelAndView validar(Aluno aluno) {
+//		ModelAndView mv = new ModelAndView("menu/paginaLogin");
+//		mv.addObject("aluno", aluno);
+//		return mv;
+//	}
 	
 	@GetMapping("/menu")
 	public ModelAndView menu() {
@@ -30,18 +30,18 @@ public class AlunoController {
 		return mv;
 	}
 	
-	@PostMapping("/listarAlunos")
-	public ModelAndView listaAlunos() {
-		ModelAndView mv = new ModelAndView("aluno/paginaAlunos");
-		mv.addObject("alunos", alunoService.listaAlunos());
-		return mv;
-	}
-	
-	@GetMapping("/adicionarAluno")
-	public ModelAndView add(Aluno aluno) {
-		ModelAndView mv = new ModelAndView("aluno/paginaAdicionarAluno");
-		mv.addObject("aluno", aluno);
-		return mv;
-	}
+//	@GetMapping("/listarAlunos")
+//	public ModelAndView listaAlunos() {
+//		ModelAndView mv = new ModelAndView("aluno/paginaAlunos");
+//		mv.addObject("alunos", alunoService.listaAlunos());
+//		return mv;
+//	}
+//	
+//	@GetMapping("/adicionarAluno")
+//	public ModelAndView add(Aluno aluno) {
+//		ModelAndView mv = new ModelAndView("aluno/paginaAdicionarAluno");
+//		mv.addObject("aluno", aluno);
+//		return mv;
+//	}
 	
 }
