@@ -19,7 +19,7 @@ public class LoginController {
 	public String login(Aluno aluno) {
 		boolean decision = loginService.login(aluno);
 		if (decision) {
-			return "redirect:menu/menu.html";
+			return "redirect:/menu";
 		}
 		return "erro/paginaErro.html";
 	}

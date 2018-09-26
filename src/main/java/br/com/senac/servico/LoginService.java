@@ -10,7 +10,7 @@ import br.com.senac.repositorio.AlunoRepositorio;
 public class LoginService {
 	
 	@Autowired
-	AlunoRepositorio repoAluno;
+	private AlunoRepositorio repoAluno;
 
 	public boolean login(Aluno aluno) {
 		Aluno alunoLogado = repoAluno.findByEmailAndNome(aluno.getEmail(), aluno.getNome());
