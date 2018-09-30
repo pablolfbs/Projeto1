@@ -1,6 +1,7 @@
 package br.com.senac.dominio;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Curso implements Serializable {
 
 	private String nome;
 	private String descricao;
-	private Double preco;
+	private BigDecimal preco;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "curso_categoria", joinColumns = @JoinColumn(name = "curso_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
@@ -57,11 +58,11 @@ public class Curso implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Double getPreco() {
+	public BigDecimal getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
 
