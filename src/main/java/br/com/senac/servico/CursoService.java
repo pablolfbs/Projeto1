@@ -15,6 +15,9 @@ public class CursoService {
 	
 	@Autowired
 	CursoRepositorio repoCurso;
+	
+	@Autowired
+	CursoService cursoService;
 
 	public List<Curso> listaCursos() {
 		return repoCurso.findAll();

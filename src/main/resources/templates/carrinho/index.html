@@ -29,28 +29,25 @@
 							<th>Nome</th>
 							<th>Descrição</th>
 							<th>Preço</th>
+							<th>Quantidade</th>
+							<th>Subtotal</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="cur : ${cursos}">
-							<td th:text="${cur.id}"></td>
-							<td th:text="${cur.nome}"></td>
-							<td th:text="${cur.descricao}"></td>
-							<td th:text="${cur.preco}"></td>
-							<td>
-								<div class="btn-group float-right">
-									<a class="btn btn-sm btn-primary" th:href="@{/alterarCurso/{id}(id=${cur.id})}">Editar</a>
-									<a class="delete btn btn-sm btn-danger" th:href="@{/excluirCurso/{id}(id=${cur.id})}">Excluir</a>
-								</div>
-							</td>
+						<tr th:each="item : ${session.cart}">
+							<td th:text="${item.cur.id}"></td>
+							<td th:text="${item.cur.nome}"></td>
+							<td th:text="${item.cur.descricao}"></td>
+							<td th:text="${item.cur.preco}"></td>
+							<td th:text="${item.quantidade}"></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 		<div class="card-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/adicionarCurso/}">Adicionar</a>
+			<a class="btn btn-sm btn-success" th:href="@{/index/}">Continuar Comprando</a>
 		</div>
 	</div>
 
