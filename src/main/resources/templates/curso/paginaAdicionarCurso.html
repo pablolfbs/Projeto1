@@ -52,11 +52,9 @@
 							</div>
 						</div>
 						<div class="input-group">
-							<select class="custom-select" id="inputGroupSelect04"
-								aria-label="">
-								<option selected></option>
-								<option th:each="cat : ${categorias}"
-									th:value="${cat.id}" th:text="${cat.nome}"></option>
+							<select class="custom-select" th:field="*{categorias}">
+								<option value="">Selecione a categoria</option>
+								<option th:each="cat : ${categorias}" th:value="${cat.id}" th:text="${cat.nome}"></option>
 							</select>
 						</div>
 					</fieldset>

@@ -12,12 +12,12 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 
-<title>Cursos</title>
+<title>Carrinho</title>
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="card-header">
-			<strong>Cursos</strong>
+			<strong>Carrinho</strong>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -25,22 +25,24 @@
 					class="table table-sm table-striped table-hover table-bordered">
 					<thead>
 						<tr>
+							<th>Função</th>
 							<th>ID</th>
 							<th>Nome</th>
 							<th>Descrição</th>
 							<th>Preço</th>
 							<th>Quantidade</th>
 							<th>Subtotal</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="item : ${session.cart}">
-							<td th:text="${item.cur.id}"></td>
-							<td th:text="${item.cur.nome}"></td>
-							<td th:text="${item.cur.descricao}"></td>
-							<td th:text="${item.cur.preco}"></td>
+							<td><a th:href="@{/carrinho/remover/{id}(id=${item.curso.id})}">Remover</a></td>
+							<td th:text="${item.curso.id}"></td>
+							<td th:text="${item.curso.nome}"></td>
+							<td th:text="${item.curso.descricao}"></td>
+							<td th:text="${item.curso.preco}"></td>
 							<td th:text="${item.quantidade}"></td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>

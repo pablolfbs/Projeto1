@@ -61,5 +61,14 @@ public class CarrinhoController implements Serializable {
 		ModelAndView mv = new ModelAndView("carrinho/index");
 		return mv;
 	}
+	
+	@GetMapping("/carrinho/remover/{id}")
+	public String remover(@PathVariable("id") Integer id, HttpSession session) {
+		List<Item> listaCarrinho = (List<Item>) session.getAttribute("cart");
+		int index = isExists(id, listaCarrinho);
+		listaCarrinho.remove(index);
+		session.setAttribute("cart", listaCarrinho);
+		return "redirect:/indexCarrinho";
+	}
 
 }

@@ -12,12 +12,12 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 
-<title>Cursos</title>
+<title>Index</title>
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="card-header">
-			<strong>Cursos</strong>
+			<strong>Index</strong>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -40,17 +40,13 @@
 							<td th:text="${cur.preco}"></td>
 							<td>
 								<div class="btn-group float-right">
-									<a class="btn btn-sm btn-primary"
-										th:href="@{/alterarCurso/{id}(id=${cur.id})}">Comprar</a>
+									<a class="btn btn-sm btn-primary" th:href="@{/carrinho/comprar/{id}(id=${cur.id})}">Comprar</a>
 								</div>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-		</div>
-		<div class="card-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/adicionarCurso/}">Adicionar</a>
 		</div>
 	</div>
 
