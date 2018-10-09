@@ -33,6 +33,7 @@ public class CarrinhoController implements Serializable {
 			listaCarrinho.add(new Item(cursoService.buscar(id), 1));
 			session.setAttribute("cart", listaCarrinho);
 		} else {
+			@SuppressWarnings("unchecked")
 			List<Item> listaCarrinho = (List<Item>) session.getAttribute("cart");
 			int index = isExists(id, listaCarrinho);
 			//se for -1 o item é novo, caso contrário item já existe no carrinho
@@ -64,6 +65,7 @@ public class CarrinhoController implements Serializable {
 	
 	@GetMapping("/carrinho/remover/{id}")
 	public String remover(@PathVariable("id") Integer id, HttpSession session) {
+		@SuppressWarnings("unchecked")
 		List<Item> listaCarrinho = (List<Item>) session.getAttribute("cart");
 		int index = isExists(id, listaCarrinho);
 		listaCarrinho.remove(index);

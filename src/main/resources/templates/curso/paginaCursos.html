@@ -29,6 +29,7 @@
 							<th>Nome</th>
 							<th>Descrição</th>
 							<th>Preço</th>
+							<th>Categorias</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -38,6 +39,7 @@
 							<td th:text="${cur.nome}"></td>
 							<td th:text="${cur.descricao}"></td>
 							<td th:text="${cur.preco}"></td>
+							<td><span th:each="cat : ${cur.categorias}" th:text="${cat.nome} + ' '"></span></td>
 							<td>
 								<div class="btn-group float-right">
 									<a class="btn btn-sm btn-primary" th:href="@{/alterarCurso/{id}(id=${cur.id})}">Editar</a>

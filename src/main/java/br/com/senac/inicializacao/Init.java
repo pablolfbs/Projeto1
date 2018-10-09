@@ -142,26 +142,38 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 
 		Curso c1 = new Curso();
 		Curso c2 = new Curso();
+		Curso c3 = new Curso();
+		Curso c4 = new Curso();
 
 		Categoria cat1 = new Categoria();
 		Categoria cat2 = new Categoria();
+		Categoria cat3 = new Categoria();
+		Categoria cat4 = new Categoria();
 
 		c1.setNome("Java");
 		c2.setNome("HTML");
+		c3.setNome("Python");
+		c4.setNome("C#");
 
 		cat1.setNome("BackEnd");
 		cat2.setNome("FrontEnd");
+		cat3.setNome("Servidor");
+		cat4.setNome("Serviço");
 
 		List<Categoria> categorias = new ArrayList<>();
 		categorias.add(cat1);
 		categorias.add(cat2);
+		categorias.add(cat3);
+		categorias.add(cat4);
 
 		c1.setCategorias(categorias);
 		c2.setCategorias(categorias);
+		c3.setCategorias(categorias);
+		c4.setCategorias(categorias);
 
-		cursoRepositorio.saveAll(Arrays.asList(c1, c2));
+		cursoRepositorio.saveAll(Arrays.asList(c1, c2, c3, c4));
 
-		categoriaRepositorio.saveAll(Arrays.asList(cat1, cat2));
+		categoriaRepositorio.saveAll(Arrays.asList(cat1, cat2, cat3, cat4));
 
 	}
 

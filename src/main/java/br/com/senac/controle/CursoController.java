@@ -46,6 +46,7 @@ public class CursoController {
 	public ModelAndView alterar(@PathVariable("id") Integer id) {
 		ModelAndView mv = new ModelAndView("curso/paginaAlterarCurso");
 		mv.addObject("curso", cursoService.buscar(id));
+		mv.addObject("categorias", catService.listaCategorias());
 		return mv;
 	}
 	

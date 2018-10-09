@@ -39,6 +39,23 @@
 								<div class="input-group-append"><span class="input-group-text">,00</span></div>
 							</div>
 						</div>
+						<td>
+			                <div th:each="cat : ${categorias}">
+			                    <input type="checkbox" th:field="*{categorias}" name="categorias" th:value="${cat.id}"/>
+			                    <label th:text="${cat.nome}" />
+			                </div>
+			            </td>
+							
+						<!--
+						<div class="input-group">
+							<select class="custom-select" th:field="*{categorias}">
+								<option value="">Selecione a categoria</option>
+								<option th:each="cat : ${categorias}" th:value="${cat.id}"
+									th:text="${cat.nome}"></option>
+							</select>
+						</div>
+						-->
+						
 					</fieldset>
 				</div>
 				<div align="center">
