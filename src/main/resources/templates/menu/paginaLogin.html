@@ -18,11 +18,10 @@
 		<div class="card-header">
 			<strong>LOGIN</strong>
 		</div>
-
 		<div class="container">
 			<div class="row mt-5">
 				<div class="col-4"></div>
-				<div class="col-4 border">
+				<div class="col-4 pt-2 bg-info">
 					<div class="card-body">
 						<form class="form-horizontal" th:object="${aluno}" th:action="@{/validar}" method="POST" style="margin: 10px">
 							<div class="form-group">
@@ -42,8 +41,11 @@
 								</fieldset>
 							</div>
 							<div align="center">
-								<button type="submit" class="btn btn-sm btn-primary">Login</button>
-								<a th:href="@{/erro}" class="btn btn-sm btn-default">Cancelar</a>
+								<button type="submit" class="btn btn-sm btn-primary">Entrar</button>
+								<a th:href="@{/erro}" class="btn btn-sm btn-default text-light">Cancelar</a>
+							</div>
+							<div align="center">
+								<a th:href="@{/erro}" class="btn btn-sm btn-default mt-2 text-light">Cadastre-se</a>
 							</div>
 						</form>
 					</div>
