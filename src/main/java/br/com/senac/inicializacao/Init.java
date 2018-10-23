@@ -1,5 +1,5 @@
 package br.com.senac.inicializacao;
-
+/*
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -176,5 +176,5 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		categoriaRepositorio.saveAll(Arrays.asList(cat1, cat2, cat3, cat4));
 
 	}
-
 }
+ */
