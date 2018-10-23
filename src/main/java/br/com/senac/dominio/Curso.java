@@ -58,12 +58,15 @@ public class Curso implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public BigDecimal getPreco() {
-		return preco;
+	public double getPreco() {
+		if (this.preco == null) {
+			return new BigDecimal(0).doubleValue();
+		}
+		return preco.doubleValue();
 	}
 
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
+	public void setPreco(double preco) {
+		this.preco = new BigDecimal(preco);
 	}
 
 	public List<Categoria> getCategorias() {
