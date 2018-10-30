@@ -1,5 +1,5 @@
 package br.com.senac.inicializacao;
-/*
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -177,4 +177,4 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 
 	}
 }
- */
+
