@@ -3,7 +3,9 @@ package br.com.senac.inicializacao;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -16,6 +18,7 @@ import br.com.senac.dominio.Cidade;
 import br.com.senac.dominio.Curso;
 import br.com.senac.dominio.Endereco;
 import br.com.senac.dominio.Estado;
+import br.com.senac.dominio.ItemPedido;
 import br.com.senac.dominio.Pagamento;
 import br.com.senac.dominio.PagamentoComBoleto;
 import br.com.senac.dominio.Pedido;
@@ -26,6 +29,7 @@ import br.com.senac.repositorio.CidadeRepositorio;
 import br.com.senac.repositorio.CursoRepositorio;
 import br.com.senac.repositorio.EnderecoRepositorio;
 import br.com.senac.repositorio.EstadoRepositorio;
+import br.com.senac.repositorio.ItemPedidoRepositorio;
 import br.com.senac.repositorio.PagamentoRepositorio;
 import br.com.senac.repositorio.PedidoRepositorio;
 
@@ -55,6 +59,9 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 
 	@Autowired
 	CategoriaRepositorio categoriaRepositorio;
+	
+	@Autowired
+	ItemPedidoRepositorio itemPedidoRepositorio;
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -174,7 +181,23 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		cursoRepositorio.saveAll(Arrays.asList(c1, c2, c3, c4));
 
 		categoriaRepositorio.saveAll(Arrays.asList(cat1, cat2, cat3, cat4));
+		
+		// criando os itens
+		ItemPedido item1 = new ItemPedido(ped1, c1, 0.00, 1, 200.00);
+		ItemPedido item2 = new ItemPedido(ped1, c2, 10.00, 1, 390.00);
+		
+		// criando a lista de itens para um pedido
+		Set<ItemPedido> listaItens1 = new HashSet<>();
+		listaItens1.add(item1);
+		listaItens1.add(item2);
+		ped1.setItens(listaItens1);
+		
+		// indicando qual lista de itens o curso está
+		c1.setItens(listaItens1);
+		c2.setItens(listaItens1);
+		
+		itemPedidoRepositorio.saveAll(Arrays.asList(item1, item2));
 
 	}
+	
 }
-
