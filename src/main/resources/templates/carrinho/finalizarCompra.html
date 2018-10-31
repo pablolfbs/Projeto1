@@ -44,12 +44,8 @@
 							<td th:text="${item.quantidade}"></td>
 							<td th:text="${item.quantidade * item.curso.preco}"></td>
 							<td>
-								<ul>
-									<li th:each="fPag : ${pagamentos}">
-										<input type="checkbox" th:field="*{categorias}" name="categorias" th:value="${cat.id}" />
-										<label th:text="${cat.nome}" />
-									</li>
-								</ul>
+								<input type="checkbox" th:field="*{categorias}" name="categorias" th:value="${cat.id}" />
+								<label th:text="${cat.nome}" />
 							</td>
 						</tr>
 					</tbody>
