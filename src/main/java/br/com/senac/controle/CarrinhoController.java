@@ -63,6 +63,12 @@ public class CarrinhoController implements Serializable {
 		return mv;
 	}
 	
+	@GetMapping("finalizarCompra")
+	public ModelAndView finalizar() {
+		ModelAndView mv = new ModelAndView("carrinho/finalizar");
+		return mv;
+	}
+	
 	@GetMapping("/carrinho/remover/{id}")
 	public String remover(@PathVariable("id") Integer id, HttpSession session) {
 		@SuppressWarnings("unchecked")
