@@ -63,9 +63,9 @@ public class CarrinhoController implements Serializable {
 		return mv;
 	}
 	
-	@GetMapping("finalizarCompra")
+	@GetMapping("finalizar")
 	public ModelAndView finalizar() {
-		ModelAndView mv = new ModelAndView("carrinho/finalizar");
+		ModelAndView mv = new ModelAndView("carrinho/finalizarCompra");
 		return mv;
 	}
 	

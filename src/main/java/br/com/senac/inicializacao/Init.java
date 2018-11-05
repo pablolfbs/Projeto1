@@ -166,6 +166,11 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		cat2.setNome("FrontEnd");
 		cat3.setNome("Servidor");
 		cat4.setNome("Serviço");
+		
+		c1.setPreco(1000);
+		c2.setPreco(200);
+		c3.setPreco(800);
+		c4.setPreco(600);
 
 		List<Categoria> categorias = new ArrayList<>();
 		categorias.add(cat1);
