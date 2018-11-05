@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.senac.dominio.enums.StatusPagamento;
 
 @Entity
@@ -26,6 +28,7 @@ public class Pagamento implements Serializable {
 	
 	private StatusPagamento status;
 	
+	@JsonIgnore // o Pagamento não precisa saber que é o pedido para o json. Isso já vai ocorrer na classe Pedido.
 	@OneToOne
 	@JoinColumn(name="pedido_id")
 	@MapsId // para garantir que o id do pedido seja o do mapeamento

@@ -57,7 +57,7 @@ public class CarrinhoController implements Serializable {
 		return -1;
 	}
 	
-	@GetMapping("indexCarrinho")
+	@GetMapping("/indexCarrinho")
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("carrinho/index");
 		return mv;
