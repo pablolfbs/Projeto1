@@ -41,9 +41,9 @@
 							<td th:text="${item.curso.id}"></td>
 							<td th:text="${item.curso.nome}"></td>
 							<td th:text="${item.curso.descricao}"></td>
-							<td th:text="${item.curso.preco}"></td>
+							<td th:text="${'$ ' + #numbers.formatDecimal(item.curso.preco, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
 							<td th:text="${item.quantidade}"></td>
-							<td th:text="${item.quantidade * item.curso.preco}"></td>
+							<td th:text="${'$ ' + #numbers.formatDecimal(item.quantidade * item.curso.preco, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
 						</tr>
 					</tbody>
 				</table>

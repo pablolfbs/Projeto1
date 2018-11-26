@@ -38,10 +38,10 @@
 						<tr th:each="item : ${session.cart}">
 							<td th:text="${item.curso.id}"></td>
 							<td th:text="${item.curso.nome}"></td>
-							<td th:text="${item.curso.preco}"></td>
+							<td th:text="${'$ ' + #numbers.formatDecimal(item.curso.preco, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
 							<td th:text="${item.quantidade}"></td>
-							<td th:text="${item.curso.preco}"></td>
-							<td th:text="${item.quantidade * item.curso.preco}"></td>
+							<td></td>
+							<td th:text="${'$ ' + #numbers.formatDecimal(item.quantidade * item.curso.preco, 0, 'DEFAULT', 2, 'DEFAULT')}">R$ </td>
 						</tr>
 					</tbody>
 					<tbody>
@@ -59,7 +59,7 @@
 		</div>
 		<div class="card-footer">
 			<a class="btn btn-sm btn-success" th:href="@{/index/}">Continuar comprando</a>
-			<a class="btn btn-sm btn-primary float-right" th:href="@{/finalizarCompra/}">Finalizar a compra</a>
+			<a class="btn btn-sm btn-primary float-right" th:href="@{/finalizar/}">Finalizar a compra</a>
 		</div>
 	</div>
 
