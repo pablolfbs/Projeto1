@@ -45,12 +45,12 @@
 								</div>
 							</div>
 						</div>
-						<td>
-							<div th:each="cat : ${categorias}">
+						<ul>
+							<li th:each="cat : ${categorias}">
 								<input type="checkbox" th:field="*{categorias}" name="categorias" th:value="${cat.id}" />
 								<label th:text="${cat.nome}" />
-							</div>
-						</td>
+							</li>
+						</ul>
 
 						<!--
 						<div class="input-group">
